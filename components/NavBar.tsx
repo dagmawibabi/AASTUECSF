@@ -19,15 +19,15 @@ const NavBar: React.FC<Props> = ({ navLinks }) => {
   const pathname = usePathname();
 
   return (
-    <div className="flex justify-between mt-4 absolute w-full">
+    <div className="absolute mt-4 flex w-full justify-between">
       <Image src={Logo} alt="ecsfLogo" />
-      <div className="text-white basis-1/3 flex p-7 text-lg space-x-4">
+      <div className="flex basis-1/3 space-x-4 p-7 text-lg text-white">
         {navLinks.map((link, i) => {
           const isActive = pathname === link.href;
           return (
             <Link
               key={i}
-              className={`hover:underline decoration-cyan-400 decoration-4 ${
+              className={`decoration-cyan-400 decoration-4 hover:underline ${
                 isActive ? "underline" : ""
               }`}
               href={link.href}

@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image";
-import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 
 type Props = {
@@ -13,21 +12,19 @@ const casualBrush = localFont({
   display: "swap",
 });
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: "500" });
-
 const Header: React.FC<Props> = ({ backgroundImage, mainText, subText }) => {
   return (
     <div
-      className="h-screen bg-cover bg-no-repeat flex flex-col justify-center items-center"
+      className="flex h-full flex-col items-center justify-center bg-cover bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImage.src})` }}
     >
       <div className="sm:ml-24">
         <h1
-          className={`${casualBrush.className} text-8xl sm:text-9xl 2xl:text-[400px] uppercase md:tracking-wider mb-8 2xl:mb-24 text-center sm:text-start`}
+          className={`${casualBrush.className} mb-8 text-center text-8xl uppercase sm:text-start sm:text-9xl md:tracking-wider 2xl:mb-24 2xl:text-[400px]`}
         >
           {mainText}
         </h1>
-        <p className={`${montserrat.className} px-8 sm:px-0 sm:w-3/4 lg:w-1/2`}>{subText}</p>
+        <p className="px-8 font-medium sm:w-3/4 sm:px-0 lg:w-1/2">{subText}</p>
       </div>
     </div>
   );
