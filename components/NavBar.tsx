@@ -15,17 +15,18 @@ type linkDesc = {
   text: string;
 };
 
-export const NavBar: React.FC<Props> = ({ navLinks }) => {
+const NavBar: React.FC<Props> = ({ navLinks }) => {
   const pathname = usePathname();
 
   return (
-    <div className="flex justify-between bg-gradient-to-b from-black to-transparent mt-4">
+    <div className="flex justify-between mt-4 absolute w-full">
       <Image src={Logo} alt="ecsfLogo" />
-      <div className="text-white basis-1/3 flex justify-evenly p-7 text-lg">
-        {navLinks.map((link) => {
+      <div className="text-white basis-1/3 flex p-7 text-lg space-x-4">
+        {navLinks.map((link, i) => {
           const isActive = pathname === link.href;
           return (
             <Link
+              key={i}
               className={`hover:underline decoration-cyan-400 decoration-4 ${
                 isActive ? "underline" : ""
               }`}
@@ -39,3 +40,5 @@ export const NavBar: React.FC<Props> = ({ navLinks }) => {
     </div>
   );
 };
+
+export default NavBar;
