@@ -8,7 +8,7 @@ type Props = {
 };
 
 const casualBrush = localFont({
-  src: "../public/CasualBrush-Regular.ttf",
+  src: "../assets/fonts/CasualBrush-Regular.ttf",
   display: "swap",
 });
 
