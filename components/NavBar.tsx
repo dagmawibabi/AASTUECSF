@@ -19,8 +19,10 @@ const NavBar: React.FC<Props> = ({ navLinks }) => {
   const pathname = usePathname();
 
   return (
-    <div className="absolute mt-4 flex w-full justify-between">
-      <Image src={Logo} alt="ecsfLogo" />
+    <nav className="absolute mt-4 flex w-full justify-between">
+      <Link href="/">
+        <Image src={Logo} alt="ecsfLogo" />
+      </Link>
       <div className="flex basis-1/3 space-x-4 p-7 text-lg text-white">
         {navLinks.map((link, i) => {
           const isActive = pathname === link.href;
@@ -37,7 +39,7 @@ const NavBar: React.FC<Props> = ({ navLinks }) => {
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 };
 

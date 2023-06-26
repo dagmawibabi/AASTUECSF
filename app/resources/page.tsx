@@ -2,8 +2,7 @@ import React from "react";
 import Header from "@components/Header";
 import HomeImage from "@/public/homePhoto.png";
 import QuoteImage from "@/public/resources_image_1.png";
-import Carousel from "@components/Carousel";
-import WorshipPhoto from "@/public/worshipPhoto.png";
+import RecentlyAdded from "./RecentlyAdded";
 
 const ResourcesPage: React.FC = () => {
   return (
@@ -24,43 +23,7 @@ const ResourcesPage: React.FC = () => {
           </span>
         </h2>
       </div>
-      <Carousel slidesToShow={3} className="mb-20 h-1/2 w-full">
-        <div
-          style={{ backgroundImage: `url(${WorshipPhoto.src})` }}
-          className="flex h-full basis-1/3 flex-col justify-end bg-cover bg-no-repeat pl-4 pb-8"
-        >
-          <h3 className="font-semibold text-2xl">Supremacy of Christ</h3>
-          <p className="text-xl">Music Worship</p>
-        </div>
-        <div
-          style={{ backgroundImage: `url(${WorshipPhoto.src})` }}
-          className="flex h-full basis-1/3 flex-col justify-end bg-cover bg-no-repeat pl-4 pb-8"
-        >
-          <h3 className="font-semibold text-2xl">Counseling Retreat</h3>
-          <p className="text-xl">worship night</p>
-        </div>
-        <div
-          style={{ backgroundImage: `url(${WorshipPhoto.src})` }}
-          className="flex h-full basis-1/3 flex-col justify-end bg-cover bg-no-repeat pl-4 pb-8"
-        >
-          <h3 className="font-semibold text-2xl">Easter night</h3>
-          <p className="text-xl">Easter worship</p>
-        </div>
-        <div
-          style={{ backgroundImage: `url(${WorshipPhoto.src})` }}
-          className="flex h-full basis-1/3 flex-col justify-end bg-cover bg-no-repeat pl-4 pb-8"
-        >
-          <h3 className="font-semibold text-2xl">Evasu</h3>
-          <p className="text-xl">Music & worship</p>
-        </div>
-        <div
-          style={{ backgroundImage: `url(${WorshipPhoto.src})` }}
-          className="flex h-full basis-1/3 flex-col justify-end bg-cover bg-no-repeat pl-4 pb-8"
-        >
-          <h3 className="font-semibold text-2xl">Graduation</h3>
-          <p className="text-xl">Life ceremony</p>
-        </div>
-      </Carousel>
+      <RecentlyAdded />
     </>
   );
 };
