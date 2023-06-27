@@ -3,6 +3,32 @@ import Header from "@components/Header";
 import HomeImage from "@/public/homePhoto.png";
 import QuoteImage from "@/public/resources_image_1.png";
 import RecentlyAdded from "./RecentlyAdded";
+import ResourcesTabBar from "./ResourcesTabBar";
+import type { Tab } from "./ResourcesTabBar";
+import { BookIcon, HeadphoneIcon, MultimediaIcon, MusicIcon } from "@components/Icons";
+
+const tabs: Tab[] = [
+  {
+    label: "Watch",
+    icon: <MultimediaIcon />,
+    children: <p>Watch tab</p>
+  },
+  {
+    label: "Listen",
+    icon: <HeadphoneIcon />,
+    children: <p>Listen tab</p>
+  },
+  {
+    label: "Read",
+    icon: <BookIcon />,
+    children: <p>Book tab</p>
+  },
+  {
+    label: "Worship",
+    icon: <MusicIcon />,
+    children: <p>Worship tab</p>
+  },
+]
 
 const ResourcesPage: React.FC = () => {
   return (
@@ -24,6 +50,7 @@ const ResourcesPage: React.FC = () => {
         </h2>
       </div>
       <RecentlyAdded />
+      <ResourcesTabBar tabs={tabs} name="Resources" />
     </>
   );
 };

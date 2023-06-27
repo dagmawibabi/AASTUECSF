@@ -1,4 +1,5 @@
 "use client";
+
 import { FC, ReactNode, useState } from "react";
 import { LeftArrow, RightArrow } from "./Icons";
 
@@ -59,7 +60,7 @@ const Carousel: FC<CarouselProps> = ({
           onClick={prevSlide}
           className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-400 p-4 self-center absolute left-0 translate-x-10"
         >
-          <LeftArrow />
+          <LeftArrow className={iconClassName}/>
         </button>
       )}
       <div className="flex gap-4 col-span-12 px-10">{getSlides()}</div>
@@ -68,7 +69,7 @@ const Carousel: FC<CarouselProps> = ({
           onClick={nextSlide}
           className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-400 p-4 self-center absolute right-0 -translate-x-10"
         >
-          <RightArrow />
+          <RightArrow className={iconClassName} />
         </button>
       )}
     </div>
