@@ -6,12 +6,13 @@ import RecentlyAdded from "./RecentlyAdded";
 import ResourcesTabBar from "./ResourcesTabBar";
 import type { Tab } from "./ResourcesTabBar";
 import { BookIcon, HeadphoneIcon, MultimediaIcon, MusicIcon } from "@components/Icons";
+import WatchTab from "./WatchTab";
 
 const tabs: Tab[] = [
   {
     label: "Watch",
     icon: <MultimediaIcon />,
-    children: <p>Watch tab</p>
+    children: <WatchTab />
   },
   {
     label: "Listen",

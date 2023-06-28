@@ -63,7 +63,7 @@ const Carousel: FC<CarouselProps> = ({
           <LeftArrow className={iconClassName}/>
         </button>
       )}
-      <div className="flex gap-4 col-span-12 px-10">{getSlides()}</div>
+      <div className="gap-4 col-span-12 px-10 grid grid-cols-3">{getSlides()}</div>
       {children.length > slidesToShow && (
         <button
           onClick={nextSlide}
