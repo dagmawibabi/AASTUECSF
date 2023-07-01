@@ -20,11 +20,11 @@ const Header: React.FC<Props> = ({ backgroundImage, mainText, subText }) => {
     >
       <div className="sm:ml-24">
         <h1
-          className={`${casualBrush.className} mb-8 text-center text-8xl uppercase sm:text-start sm:text-9xl md:tracking-wider 2xl:mb-24 2xl:text-[400px]`}
+          className={`${casualBrush.className} mb-8 text-center text-8xl uppercase sm:text-start sm:text-9xl md:tracking-wider 2xl:mb-24 2xl:text-[400px] text-white`}
         >
           {mainText}
         </h1>
-        <p className="px-8 font-medium sm:w-3/4 sm:px-0 lg:w-1/2">{subText}</p>
+        <p className="px-8 font-medium sm:w-3/4 sm:px-0 lg:w-1/2 text-white">{subText}</p>
       </div>
     </div>
   );

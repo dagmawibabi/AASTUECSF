@@ -5,11 +5,13 @@ import React, { ReactElement } from "react";
 type Props = {
   tabs: Tab[];
   name: string;
+  bgColor?: string;
 };
 
 type Tab = {
   label: React.ReactNode;
   children: React.ReactNode | React.ReactNode[];
+  bgColor?: string;
 };
 
 function getStyledLabel(label: React.ReactNode, isActive: boolean) {
@@ -39,11 +41,11 @@ function getStyledLabel(label: React.ReactNode, isActive: boolean) {
   }
 }
 
-const TabBar: React.FC<Props> = ({ tabs, name }) => {
+const TabBar: React.FC<Props> = ({ tabs, name, bgColor }) => {
   const [activeTab, setActiveTab] = React.useState<number>(0);
   return (
-    <>
-      <h1 className="text-4xl font-semibold text-white uppercase text-center mt-10 mb-5">{name}</h1>
+    <div style={{backgroundColor: `${bgColor ?? "black"}`}} className="py-16">
+      <h1 className="text-4xl font-semibold text-white uppercase text-center">{name}</h1>
       <nav className="flex items-center justify-center gap-8">
         {tabs.map(({ label }, index) => {
           return (
@@ -62,7 +64,7 @@ const TabBar: React.FC<Props> = ({ tabs, name }) => {
         })}
       </nav>
       {tabs[activeTab].children}
-    </>
+    </div>
   );
 };
 

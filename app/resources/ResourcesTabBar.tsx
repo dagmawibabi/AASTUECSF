@@ -34,7 +34,7 @@ const ResourcesTabBar: React.FC<Props> = ({ tabs, name }) => {
                 }`}
                 onClick={() => setActiveTab(index)}
               >
-                <p className="text-xl uppercase">{label}</p>
+                <p className="text-xl uppercase text-white">{label}</p>
                 {!isMobile && React.cloneElement(icon as ReactElement, {
                   className: "stroke-white fill-transparent stroke-1",
                   width: "40px",

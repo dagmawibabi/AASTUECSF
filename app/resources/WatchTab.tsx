@@ -25,7 +25,7 @@ const cards = [
 
 const WatchTab: React.FC = () => {
   return (
-    <div className="grid md:grid-cols-2 gap-8 lg:gap-40">
+    <div className="grid md:grid-cols-2 gap-4 lg:gap-40 px-10">
       {cards.map((card, index) => {
         return <ImageCard key={index} {...card} />;
       })}
