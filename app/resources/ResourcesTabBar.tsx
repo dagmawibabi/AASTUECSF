@@ -1,6 +1,7 @@
 "use client";
 
-import React, { ReactElement, useEffect, useState } from "react";
+import useNav from "@/hooks/useNav";
+import React, { ReactElement, useState } from "react";
 type Props = {
   tabs: Tab[];
   name: string;
@@ -14,14 +15,10 @@ export type Tab = {
 
 const ResourcesTabBar: React.FC<Props> = ({ tabs, name }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 1063);;
-  }, [])
+  const isMobile = useNav();
 
   return (
-    <div className="mb-10 flex bg-[#1B1A1A] py-14 pl-4 sm:pl-10">
+    <div className="flex bg-[#1B1A1A] py-14 pl-4 sm:pl-10">
       <div className="w-1/3">
         <h3 className="mb-4 px-4 font-medium uppercase text-white">{name}</h3>
         <nav className="w-full space-y-4">
