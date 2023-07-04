@@ -1,9 +1,6 @@
-"use client";
-
 import localFont from "next/font/local";
 import FooterBG from "@/assets/images/footer_bg.png";
 import Logo from "@/public/ecsfLogo.png";
-import useNav from "@/hooks/useNav";
 import Image from "next/image";
 import {
   FacebookIcon,
@@ -32,16 +29,14 @@ type linkDesc = {
 };
 
 const Footer: React.FC<Props> = ({ navLinks }) => {
-  const isMobile = useNav(1247);
-
   return (
-    <footer className="grid h-[80%] grid-cols-3">
+    <footer className="grid grid-rows-3 xl:h-[80%] xl:grid-cols-3 xl:grid-rows-none border-2 border-green-400">
       <div
         style={{
           backgroundImage: `url(${FooterBG.src})`,
           backgroundSize: "100% 100%",
         }}
-        className="col-span-1 flex flex-col items-center justify-center border-2 border-cyan-500 bg-no-repeat px-12"
+        className="col-span-3 flex flex-col items-center justify-center border-2 border-red-500 bg-no-repeat px-12 xl:col-span-1"
       >
         <p className="text-2xl font-semibold">
           Be a Part of <br />
@@ -52,40 +47,24 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
         <p className="font-semibold">
           Subscribe Now for Up-to-the-Minute Connections
         </p>
-        {!isMobile ? (
-          <form
-            className="mt-14 flex justify-between rounded-full border border-white"
-            method="POST"
+        <form
+          className="mt-14 flex justify-between rounded-full border border-white"
+          method="POST"
+        >
+          <input
+            type="text"
+            placeholder="Enter Email here"
+            className="bg-transparent p-4 uppercase outline-none placeholder:text-white"
+          />
+          <button
+            type="submit"
+            className="rounded-full bg-white p-4 font-bold uppercase text-cyan-400"
           >
-            <input
-              type="text"
-              placeholder="Enter Email here"
-              className="bg-transparent p-4 uppercase outline-none placeholder:text-white"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-white p-4 font-bold uppercase text-cyan-400"
-            >
-              Subscribe
-            </button>
-          </form>
-        ) : (
-          <form className="mt-14 space-y-4">
-            <input
-              type="text"
-              placeholder="Enter Email here"
-              className="rounded-full border border-white bg-transparent p-4 uppercase outline-none placeholder:text-white"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-white p-4 font-bold uppercase text-cyan-400"
-            >
-              Subscribe
-            </button>
-          </form>
-        )}
+            Subscribe
+          </button>
+        </form>
       </div>
-      <div className="col-span-2 flex flex-col items-center justify-between bg-[#333333]">
+      <div className="col-span-3 xl:col-span-2 row-span-2 xl:row-auto flex flex-col items-center justify-between bg-[#333333]">
         <Image src={Logo} alt="AASTU ESCF Logo" className="self-start p-8" />
         <div className="grid place-items-center gap-4 xl:grid-cols-4">
           <div className="flex flex-col items-center gap-2">
@@ -135,7 +114,9 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
                 >
                   {link.text}
                 </Link>
-                <p className="inline-block text-2xl">/</p>
+                <p key={100 + i} className="inline-block text-2xl">
+                  /
+                </p>
               </>
             );
           })}
