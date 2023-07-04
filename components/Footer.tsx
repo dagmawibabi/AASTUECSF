@@ -30,13 +30,13 @@ type linkDesc = {
 
 const Footer: React.FC<Props> = ({ navLinks }) => {
   return (
-    <footer className="grid grid-rows-3 xl:h-[80%] xl:grid-cols-3 xl:grid-rows-none border-2 border-green-400">
+    <footer className="grid grid-rows-3 xl:h-[80%] xl:grid-cols-3 xl:grid-rows-none">
       <div
         style={{
           backgroundImage: `url(${FooterBG.src})`,
           backgroundSize: "100% 100%",
         }}
-        className="col-span-3 flex flex-col items-center justify-center border-2 border-red-500 bg-no-repeat px-12 xl:col-span-1"
+        className="col-span-3 flex flex-col items-center justify-center bg-no-repeat px-12 xl:col-span-1"
       >
         <p className="text-2xl font-semibold">
           Be a Part of <br />

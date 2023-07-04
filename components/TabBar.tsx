@@ -44,7 +44,7 @@ function getStyledLabel(label: React.ReactNode, isActive: boolean) {
 const TabBar: React.FC<Props> = ({ tabs, name, bgColor }) => {
   const [activeTab, setActiveTab] = React.useState<number>(0);
   return (
-    <div style={{backgroundColor: `${bgColor ?? "black"}`}} className="py-16">
+    <div style={{backgroundColor: `${bgColor ?? "black"}`}} className="py-16 space-y-4">
       <h1 className="text-4xl font-semibold text-white uppercase text-center">{name}</h1>
       <nav className="flex items-center justify-center gap-8">
         {tabs.map(({ label }, index) => {

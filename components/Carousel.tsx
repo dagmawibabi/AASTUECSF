@@ -54,20 +54,27 @@ const Carousel: FC<CarouselProps> = ({
     return children.slice(current, current + slidesToShow);
   }
   return (
-    <div className={`grid gap-4 grid-cols-12 ${className ?? null}`}>
+    <div className={`grid grid-cols-12 gap-4 ${className ?? null}`}>
       {children.length > slidesToShow && (
         <button
           onClick={prevSlide}
-          className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-400 p-4 self-center absolute left-0 translate-x-10"
+          className="absolute left-0 flex h-24 w-24 translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
         >
-          <LeftArrow className={iconClassName}/>
+          <LeftArrow className={iconClassName} />
         </button>
       )}
-      <div className="gap-4 col-span-12 px-10 grid grid-cols-3">{getSlides()}</div>
+      <div
+        style={{
+          gridTemplateColumns: `repeat(${slidesToShow}, minmax(0, 1fr))`,
+        }}
+        className="col-span-12 grid gap-4 px-10"
+      >
+        {getSlides()}
+      </div>
       {children.length > slidesToShow && (
         <button
           onClick={nextSlide}
-          className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-400 p-4 self-center absolute right-0 -translate-x-10"
+          className="absolute right-0 flex h-24 w-24 -translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
         >
           <RightArrow className={iconClassName} />
         </button>

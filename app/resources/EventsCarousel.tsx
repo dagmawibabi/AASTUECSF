@@ -1,10 +1,15 @@
+"use client";
+
 import Carousel from "@components/Carousel";
 import WorshipPhoto from "@/public/worshipPhoto.png";
 import ImageCard from "@components/ImageCard";
+import useNav from "@/hooks/useNav";
 
 const EventsCarousel: React.FC = () => {
+  const isMobile = useNav(600);
+
   return (
-    <Carousel slidesToShow={3}>
+    <Carousel slidesToShow={isMobile ? 1 : 3}>
       <ImageCard
         name="Supremacy of Christ"
         src={WorshipPhoto.src}
