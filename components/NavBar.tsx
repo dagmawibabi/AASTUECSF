@@ -20,7 +20,7 @@ type linkDesc = {
 const NavBar: React.FC<Props> = ({ navLinks }) => {
   const pathname = usePathname();
   const isMobile = useNav(1007);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isMobile) {
