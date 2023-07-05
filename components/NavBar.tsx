@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/public/ecsfLogo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useNav from "@/hooks/useNav";
 import { MenuIcon } from "./Icons";
 
@@ -22,7 +22,12 @@ const NavBar: React.FC<Props> = ({ navLinks }) => {
   const isMobile = useNav(1007);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  console.log(isMobile);
+  useEffect(() => {
+    if (!isMobile) {
+      setIsMenuOpen(false);
+    }
+  }, [isMobile]);
+
   return (
     <>
       <nav className="absolute top-0 mt-4 flex w-full justify-between overflow-hidden px-8">

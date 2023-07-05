@@ -36,7 +36,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           backgroundImage: `url(${FooterBG.src})`,
           backgroundSize: "100% 100%",
         }}
-        className="flex flex-col items-center justify-center bg-no-repeat px-4 sm:px-12 xl:col-span-1"
+        className="flex w-screen flex-col items-center justify-center bg-no-repeat px-4 sm:px-12 xl:col-span-1 xl:w-auto"
       >
         <p className="text-2xl font-semibold">
           Be a Part of <br />
@@ -48,7 +48,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           Subscribe Now for Up-to-the-Minute Connections
         </p>
         <form
-          className="mt-8 sm:mt-14 flex justify-between rounded-full border border-white"
+          className="mt-8 flex justify-between rounded-full border border-white sm:mt-14"
           method="POST"
         >
           <input
@@ -58,13 +58,13 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           />
           <button
             type="submit"
-            className="rounded-full bg-white p-4 font-bold uppercase text-cyan-400"
+            className="rounded-full bg-white p-2 text-sm font-bold uppercase text-cyan-400 sm:text-base md:p-4"
           >
             Subscribe
           </button>
         </form>
       </div>
-      <div className="col-span-3 xl:col-span-2 row-span-2 xl:row-auto flex flex-col items-center justify-between bg-[#333333]">
+      <div className="col-span-3 row-span-2 flex flex-col items-center justify-between bg-[#333333] xl:col-span-2 xl:row-auto">
         <Image src={Logo} alt="AASTU ESCF Logo" className="self-start p-8" />
         <div className="grid place-items-center gap-4 xl:grid-cols-4">
           <div className="flex flex-col items-center gap-2">
@@ -122,8 +122,8 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           })}
         </div>
         <div className="mt-10 space-y-2 text-center">
-          <p className="text-3xl font-light">Join Us Every Wednesday</p>
-          <h3 className="text-3xl font-semibold">
+          <p className="text-xl md:text-2xl lg:text-3xl font-light">Join Us Every Wednesday</p>
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold">
             Wednesday at 6 pm to 8 pm at kilinto condominum church
           </h3>
         </div>
