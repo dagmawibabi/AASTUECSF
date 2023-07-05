@@ -36,7 +36,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           backgroundImage: `url(${FooterBG.src})`,
           backgroundSize: "100% 100%",
         }}
-        className="col-span-3 flex flex-col items-center justify-center bg-no-repeat px-12 xl:col-span-1"
+        className="flex flex-col items-center justify-center bg-no-repeat px-4 sm:px-12 xl:col-span-1"
       >
         <p className="text-2xl font-semibold">
           Be a Part of <br />
@@ -48,7 +48,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           Subscribe Now for Up-to-the-Minute Connections
         </p>
         <form
-          className="mt-14 flex justify-between rounded-full border border-white"
+          className="mt-8 sm:mt-14 flex justify-between rounded-full border border-white"
           method="POST"
         >
           <input
