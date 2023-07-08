@@ -25,7 +25,7 @@ const GivingsPage: React.FC = () => {
           Givings
         </h1>
         <p className="font-medium text-white sm:w-3/4 lg:w-1/2">
-          If you're looking to give a gift or make a donation to AASTU ECSF,
+          If you&apos;re looking to give a gift or make a donation to AASTU ECSF,
           there are several ways to do so.By giving to AASTU ECSF, you are
           helping us to achieve our mission of helping to achieve what Jesus
           wants, and making a positive impact on the community.
@@ -92,7 +92,7 @@ const GivingsPage: React.FC = () => {
             Donate Items
           </h1>
           <p className="px-8 text-xl text-white">
-            Whether it's clothing, bedding, or household items, these donations
+            Whether it&apos;s clothing, bedding, or household items, these donations
             can make a big difference in the lives of those who receive them.
             Contact us on <br /> AASTU ECSF:+251907743926
           </p>
@@ -113,7 +113,7 @@ const GivingsPage: React.FC = () => {
             Gift Random
           </h1>
           <p className="px-8 text-xl text-white">
-            If you're looking for a unique and unexpected gift, consider giving
+            If you&apos;re looking for a unique and unexpected gift, consider giving
             something completely random. Contact us on AASTU ECSF:
             <br />
             +251907743926
