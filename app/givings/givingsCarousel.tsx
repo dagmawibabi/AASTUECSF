@@ -6,7 +6,7 @@ import ImageCard from "@components/ImageCard";
 import WorshipPhoto from "@/public/worshipPhoto.png";
 
 const GivingsCarousel: React.FC = () => {
-  const isMobile = useNav(600);
+  const isMobile = useNav(700);
 
   return (
     <Carousel slidesToShow={isMobile ? 1 : 3}>

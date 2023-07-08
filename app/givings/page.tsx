@@ -47,7 +47,7 @@ const GivingsPage: React.FC = () => {
       </div>
       <div
         style={{ backgroundImage: `url(${GrainBG.src})` }}
-        className="grid md:grid-cols-3 gap-4 p-14"
+        className="grid gap-4 p-14 md:grid-cols-2 lg:grid-cols-3"
       >
         <div>
           <div className="mb-8 flex flex-col items-center text-center">
@@ -66,7 +66,9 @@ const GivingsPage: React.FC = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <Image src={GiveIcon} alt="Give icon" width={50} />
-          <h1 className="text-2xl font-bold text-white">Give In Person</h1>
+          <h1 className="text-center text-2xl font-bold text-white">
+            Give In Person
+          </h1>
           <p className="px-8 text-xl text-white">
             You can securely drop off your gift in the form of a check or cash
             in person at our location. Contact us on <br /> AASTU
@@ -75,7 +77,7 @@ const GivingsPage: React.FC = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <Image src={BankIcon} alt="Bank icon" width={50} />
-          <h1 className="text-2xl font-bold text-white">
+          <h1 className="text-center text-2xl font-bold text-white">
             Transfer To Bank Account
           </h1>
           <p className="px-8 text-xl text-white">
@@ -86,7 +88,9 @@ const GivingsPage: React.FC = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <Image src={BankIcon} alt="Bank icon" width={50} />
-          <h1 className="text-2xl font-bold text-white">Donate Items</h1>
+          <h1 className="text-center text-2xl font-bold text-white">
+            Donate Items
+          </h1>
           <p className="px-8 text-xl text-white">
             Whether it's clothing, bedding, or household items, these donations
             can make a big difference in the lives of those who receive them.
@@ -95,7 +99,9 @@ const GivingsPage: React.FC = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <Image src={ChurchIcon} alt="Bank icon" width={50} />
-          <h1 className="text-2xl font-bold text-white">Give In Service</h1>
+          <h1 className="text-center text-2xl font-bold text-white">
+            Give In Service
+          </h1>
           <p className="px-8 text-xl text-white">
             During our weekly services, you can give by placing your gift in the
             offering bucket at our location.
@@ -103,7 +109,9 @@ const GivingsPage: React.FC = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <Image src={ChurchIcon} alt="Bank icon" width={50} />
-          <h1 className="text-2xl font-bold text-white">Gift Random</h1>
+          <h1 className="text-center text-2xl font-bold text-white">
+            Gift Random
+          </h1>
           <p className="px-8 text-xl text-white">
             If you're looking for a unique and unexpected gift, consider giving
             something completely random. Contact us on AASTU ECSF:
@@ -114,15 +122,15 @@ const GivingsPage: React.FC = () => {
       </div>
       <div
         style={{ backgroundImage: `url(${BlackGrain.src})` }}
-        className="space-y-4 p-14"
+        className="space-y-4 p-4 lg:p-14"
       >
-        <div>
+        <div className="space-y-4">
           <h1
             className={`text-center text-7xl ${casualBrush.className} uppercase tracking-wider text-cyan-400`}
           >
             Photograhpic Journey
           </h1>
-          <h4 className="text-center font-semibold uppercase">
+          <h4 className="text-center text-xl font-semibold uppercase">
             Visualizing The Impact Of Your Giving
           </h4>
         </div>
