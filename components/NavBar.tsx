@@ -46,7 +46,7 @@ const NavBar: React.FC<Props> = ({ navLinks }) => {
               return (
                 <Link
                   key={i}
-                  className={`decoration-cyan-400 decoration-4 hover:underline ${
+                  className={`decoration-cyan-400 decoration-4 underline-offset-8 hover:underline ${
                     isActive ? "underline" : ""
                   }`}
                   href={link.href}

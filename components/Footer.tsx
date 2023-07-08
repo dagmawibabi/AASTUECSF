@@ -98,7 +98,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
                 <Link
                   key={i}
                   href={link.href}
-                  className="text-xl font-bold decoration-cyan-400 decoration-4 hover:underline"
+                  className="text-xl font-bold decoration-cyan-400 underline-offset-8 decoration-4 hover:underline"
                 >
                   {link.text}
                 </Link>
@@ -110,7 +110,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
                 <Link
                   key={i}
                   href={link.href}
-                  className="inline-block text-xl font-bold decoration-cyan-400 decoration-4 hover:underline"
+                  className="inline-block text-xl font-bold decoration-cyan-400 underline-offset-8 decoration-4 hover:underline"
                 >
                   {link.text}
                 </Link>
@@ -147,7 +147,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
           </p>
           <Link
             href="#"
-            className="decoration-cyan-400 decoration-4 hover:underline"
+            className="decoration-cyan-400 underline-offset-8 decoration-4 hover:underline"
           >
             Privacy Policy
           </Link>

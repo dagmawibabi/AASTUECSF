@@ -47,7 +47,7 @@ const GivingsPage: React.FC = () => {
       </div>
       <div
         style={{ backgroundImage: `url(${GrainBG.src})` }}
-        className="grid gap-4 p-14 md:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-4 gap-y-14 md:gap-y-36 p-14 md:grid-cols-2 lg:grid-cols-3"
       >
         <div>
           <div className="mb-8 flex flex-col items-center text-center">
