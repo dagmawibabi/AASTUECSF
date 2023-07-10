@@ -6,6 +6,7 @@ type Props = {
   tabs: Tab[];
   name: string;
   bgColor?: string;
+  containerStyles?: React.CSSProperties;
 };
 
 type Tab = {
@@ -41,11 +42,16 @@ function getStyledLabel(label: React.ReactNode, isActive: boolean) {
   }
 }
 
-const TabBar: React.FC<Props> = ({ tabs, name, bgColor }) => {
+const TabBar: React.FC<Props> = ({ tabs, name, bgColor, containerStyles }) => {
   const [activeTab, setActiveTab] = React.useState<number>(0);
   return (
-    <div style={{backgroundColor: `${bgColor ?? "black"}`}} className="py-16 space-y-4">
-      <h1 className="text-4xl font-semibold text-white uppercase text-center">{name}</h1>
+    <div
+      style={{ backgroundColor: `${bgColor ?? ""}`, ...containerStyles }}
+      className="space-y-4 py-16"
+    >
+      <h1 className="text-center text-4xl font-semibold uppercase text-white">
+        {name}
+      </h1>
       <nav className="flex items-center justify-center gap-8">
         {tabs.map(({ label }, index) => {
           return (
@@ -68,4 +74,5 @@ const TabBar: React.FC<Props> = ({ tabs, name, bgColor }) => {
   );
 };
 
+export type { Tab };
 export default TabBar;

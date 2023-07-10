@@ -1,9 +1,9 @@
 "use client";
 
-import Carousel from "@components/Carousel";
-import WorshipPhoto from "@/public/worshipPhoto.png";
-import ImageCard from "@components/ImageCard";
 import useNav from "@/hooks/useNav";
+import Carousel from "@components/Carousel";
+import ImageCard from "@components/ImageCard";
+import WorshipPhoto from "@/public/worshipPhoto.png";
 
 const EventsCarousel: React.FC = () => {
   const isMobile = useNav(600);

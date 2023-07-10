@@ -27,7 +27,7 @@ const tabs = [
 
 const RecentlyAdded: React.FC = () => {
   return (
-    <TabBar tabs={tabs} name="Recently Added" />
+    <TabBar tabs={tabs} name="Recently Added" bgColor="black" />
   );
 };
 
