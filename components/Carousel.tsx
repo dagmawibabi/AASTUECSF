@@ -40,13 +40,18 @@ const Carousel: FC<CarouselProps> = ({
 
   function prevSlide() {
     if (slider.current == null || slide.current == null) return;
-    const scrollValue = slide.current.offsetWidth * slidesToScroll;
+
+    const gap = (slider.current.scrollWidth - (slide.current.offsetWidth * children.length)) / children.length;
+    const scrollValue =
+      (slide.current.offsetWidth * slidesToScroll) + gap
     slider.current.scrollLeft -= scrollValue;
   }
 
   function nextSlide() {
     if (slider.current == null || slide.current == null) return;
-    const scrollValue = slide.current.offsetWidth * slidesToScroll;
+    const gap = (slider.current.scrollWidth - (slide.current.offsetWidth * children.length)) / children.length;
+    const scrollValue =
+      slide.current.offsetWidth * slidesToScroll + gap;
     slider.current.scrollLeft += scrollValue;
   }
 

@@ -9,7 +9,9 @@ const ImageCard: React.FC<Props> = ({ src, name, desc, className }) => {
   return (
     <div
       style={{ backgroundImage: `url(${src})` }}
-      className={`bg-cover bg-no-repeat  flex flex-col justify-end pb-8 pl-4 h-[500px] ${className ?? ""}`}
+      className={`flex h-[500px]  flex-col justify-end bg-cover bg-no-repeat pb-8 pl-4 ${
+        className ?? ""
+      }`}
     >
       <h3 className="text-2xl font-semibold text-white">{name}</h3>
       {desc ? <p className="text-xl text-white">{desc}</p> : null}
