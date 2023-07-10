@@ -15,7 +15,10 @@ const UpcomingEvents: React.FC<Props> = ({
     <TabBar
       tabs={tabs}
       name={title}
-      containerStyles={{ backgroundImage: `url(${GrainBG.src})` }}
+      containerStyles={{
+        backgroundImage: `url(${GrainBG.src})`,
+        overflowX: "scroll",
+      }}
     />
   );
 };
