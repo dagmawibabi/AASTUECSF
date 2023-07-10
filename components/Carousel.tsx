@@ -1,7 +1,8 @@
 "use client";
 
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useRef } from "react";
 import { LeftArrow, RightArrow } from "./Icons";
+import React from "react";
 
 type CarouselProps = {
   children: ReactNode[];
@@ -11,14 +12,23 @@ type CarouselProps = {
   iconClassName?: string;
 };
 
+function getWidth(slidesToShow: number) {
+  if (slidesToShow == 1) {
+    return "w-full";
+  }
+
+  return `w-1/${slidesToShow}`;
+}
+
 const Carousel: FC<CarouselProps> = ({
   children,
   slidesToShow = 1,
   slidesToScroll = 1,
-  className,
   iconClassName,
+  className,
 }) => {
-  const [current, setCurrent] = useState<number>(0);
+  const slider = useRef<HTMLDivElement>(null);
+  const slide = useRef<HTMLDivElement>(null);
 
   if (!children || children.length < 1) {
     return null;
@@ -28,53 +38,49 @@ const Carousel: FC<CarouselProps> = ({
     slidesToShow = children.length;
   }
 
-  function nextSlide(e: React.FormEvent<HTMLButtonElement>) {
-    if (current + slidesToScroll >= children.length) {
-      setCurrent(0);
-    } else {
-      setCurrent((cur) => cur + slidesToScroll);
-    }
+  function prevSlide() {
+    if (slider.current == null || slide.current == null) return;
+    const scrollValue = slide.current.offsetWidth * slidesToScroll;
+    slider.current.scrollLeft -= scrollValue;
   }
 
-  function prevSlide(e: React.FormEvent<HTMLButtonElement>) {
-    if (current - slidesToScroll < 0) {
-      setCurrent(children.length - slidesToScroll);
-    } else {
-      setCurrent((cur) => cur - slidesToScroll);
-    }
+  function nextSlide() {
+    if (slider.current == null || slide.current == null) return;
+    const scrollValue = slide.current.offsetWidth * slidesToScroll;
+    slider.current.scrollLeft += scrollValue;
   }
 
-  function getSlides(): ReactNode[] {
-    if (current + slidesToShow >= children.length) {
-      return children
-        .slice(current, children.length)
-        .concat(children.slice(0, current + slidesToShow - children.length));
-    }
-
-    return children.slice(current, current + slidesToShow);
-  }
   return (
-    <div className={`grid grid-cols-12 gap-4 ${className ?? null}`}>
+    <div className={`flex ${className ?? null}`}>
       {children.length > slidesToShow && (
         <button
           onClick={prevSlide}
-          className="absolute left-0 flex h-24 w-24 translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
+          className="absolute left-0 flex h-14 w-14 translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
         >
           <LeftArrow className={iconClassName} />
         </button>
       )}
       <div
-        style={{
-          gridTemplateColumns: `repeat(${slidesToShow}, minmax(0, 1fr))`,
-        }}
-        className="col-span-12 grid gap-4 px-10"
+        className="flex w-full gap-8 overflow-x-scroll scroll-smooth"
+        style={{ scrollbarWidth: "none" }}
+        ref={slider}
       >
-        {getSlides()}
+        {children.map((el, i) => {
+          return (
+            <div
+              key={i}
+              ref={slide}
+              className={`flex-none ${getWidth(slidesToShow)}`}
+            >
+              {el}
+            </div>
+          );
+        })}
       </div>
       {children.length > slidesToShow && (
         <button
           onClick={nextSlide}
-          className="absolute right-0 flex h-24 w-24 -translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
+          className="absolute right-0 flex h-14 w-14 -translate-x-10 items-center justify-center self-center rounded-full bg-gray-400 p-4"
         >
           <RightArrow className={iconClassName} />
         </button>
@@ -82,5 +88,4 @@ const Carousel: FC<CarouselProps> = ({
     </div>
   );
 };
-
 export default Carousel;

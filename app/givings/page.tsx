@@ -20,18 +20,18 @@ const GivingsPage: React.FC = () => {
     <>
       <Header backgroundImage={GivingsHeaderImage} className="px-8">
         <h1
-          className={`${casualBrush.className} mb-8 text-9xl uppercase tracking-widest lg:text-[15rem] xl:text-[25rem]`}
+          className={`${casualBrush.className} mb-8 text-8xl md:text-9xl uppercase tracking-widest lg:text-[15rem] xl:text-[15rem]`}
         >
           Givings
         </h1>
-        <p className="font-medium text-white sm:w-3/4 lg:w-1/2">
+        <p className="font-medium text-white sm:w-3/4 lg:w-1/2 lg:text-xl">
           If you&apos;re looking to give a gift or make a donation to AASTU ECSF,
           there are several ways to do so.By giving to AASTU ECSF, you are
           helping us to achieve our mission of helping to achieve what Jesus
           wants, and making a positive impact on the community.
         </p>
       </Header>
-      <div className="flex flex-col items-center justify-between gap-8 bg-white p-12 md:flex-row">
+      <div className="flex flex-col items-center justify-between gap-8 bg-gray-200 p-12 md:flex-row">
         <div className="space-y-4 text-black">
           <h2 className={`text-8xl md:text-9xl ${casualBrush.className}`}>
             Give, and it will be given to you.
@@ -122,7 +122,7 @@ const GivingsPage: React.FC = () => {
       </div>
       <div
         style={{ backgroundImage: `url(${BlackGrain.src})` }}
-        className="space-y-4 p-4 lg:p-14"
+        className="space-y-4 md:space-y-14 px-4 py-8 lg:px-8 lg:py-24"
       >
         <div className="space-y-4">
           <h1

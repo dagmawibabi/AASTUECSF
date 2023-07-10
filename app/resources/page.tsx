@@ -47,12 +47,11 @@ const ResourcesPage: React.FC = () => {
     <>
       <Header backgroundImage={HomeImage}>
         <h1
-          className={`${casualBrush.className} mb-8 text-center text-8xl uppercase text-white sm:text-start sm:text-9xl md:tracking-wider 2xl:mb-24 2xl:text-[400px]`}
+          className={`${casualBrush.className} mb-8 text-center text-8xl uppercase text-white sm:text-start sm:text-9xl md:tracking-wider 2xl:text-[15rem]`}
         >
           Resources
         </h1>
-        <p className="px-8 font-medium text-white sm:w-3/4 sm:px-0 lg:w-1/2">
-          {" "}
+        <p className="px-8 font-medium text-white sm:w-3/4 sm:px-0 lg:w-1/2 lg:text-xl">
           Here, you will find a wide range of resources to help you strengthen
           your faith and spiritual well-being. From books on theology and
           spiritual growth to worship videos and spiritual songs, there is
