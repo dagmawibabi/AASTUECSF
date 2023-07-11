@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { LeftArrow, RightArrow } from "./Icons";
 import React from "react";
 
@@ -64,7 +64,7 @@ const Carousel: FC<CarouselProps> = ({
     setCurrent(current - 1);
   }
 
-  const nextSlide = useCallback(() => {
+  function nextSlide() {
     console.log({ current });
     if (slider.current == null || slide.current == null) return;
     const gap =
@@ -82,7 +82,7 @@ const Carousel: FC<CarouselProps> = ({
       slider.current.scroll(0, 0);
       setCurrent(0);
     }
-  }, [current]);
+  }
 
   return (
     <div className={`flex ${className ?? null}`}>
