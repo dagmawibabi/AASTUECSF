@@ -66,7 +66,7 @@ const Footer: React.FC<Props> = ({ navLinks }) => {
       </div>
       <div className="col-span-3 row-span-2 flex flex-col items-center justify-between bg-[#333333] xl:col-span-2 xl:row-auto">
         <Image src={Logo} alt="AASTU ESCF Logo" className="self-start p-8" />
-        <div className="grid place-items-center gap-4 xl:grid-cols-4">
+        <div className="grid place-items-center gap-14 xl:gap-4 xl:grid-cols-4">
           <div className="flex flex-col items-center gap-2">
             <MailIcon />
             <h1 className="text-2xl font-semibold">Email</h1>
