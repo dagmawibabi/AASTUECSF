@@ -9,7 +9,7 @@ const EventsCarousel: React.FC = () => {
   const isMobile = useNav(600);
 
   return (
-    <Carousel slidesToShow={isMobile ? 1 : 3} className="pl-8">
+    <Carousel slidesToShow={isMobile ? 1 : 3} className="px-2 lg:pl-8">
       <ImageCard
         name="Supremacy of Christ"
         src={WorshipPhoto.src}

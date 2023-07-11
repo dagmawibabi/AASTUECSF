@@ -7,6 +7,8 @@ type Props = {
   name: string;
   bgColor?: string;
   containerStyles?: React.CSSProperties;
+  tabBarStyles?: React.CSSProperties;
+  containerClassName?: string;
 };
 
 type Tab = {
@@ -42,33 +44,45 @@ function getStyledLabel(label: React.ReactNode, isActive: boolean) {
   }
 }
 
-const TabBar: React.FC<Props> = ({ tabs, name, bgColor, containerStyles }) => {
+const TabBar: React.FC<Props> = ({
+  tabs,
+  name,
+  bgColor,
+  containerStyles,
+  containerClassName,
+  tabBarStyles,
+}) => {
   const [activeTab, setActiveTab] = React.useState<number>(0);
   return (
     <div
       style={{ backgroundColor: `${bgColor ?? ""}`, ...containerStyles }}
-      className="space-y-4 py-16"
+      className={`space-y-4 py-24 md:space-y-14 ${containerClassName ?? ""}`}
     >
-      <h1 className="text-center text-4xl font-semibold uppercase text-white">
-        {name}
-      </h1>
-      <nav className="flex items-center justify-center gap-8">
-        {tabs.map(({ label }, index) => {
-          return (
-            <button
-              key={index}
-              className={`${
-                activeTab === index
-                  ? "text-cyan-300 underline decoration-cyan-300"
-                  : ""
-              }`}
-              onClick={() => setActiveTab(index)}
-            >
-              {getStyledLabel(label, activeTab === index)}
-            </button>
-          );
-        })}
-      </nav>
+      <div className={`space-y-4 `}>
+        <h1 className="text-center text-4xl font-semibold uppercase text-white">
+          {name}
+        </h1>
+        <nav
+          style={{ ...tabBarStyles }}
+          className="flex items-center justify-center gap-4 flex-wrap"
+        >
+          {tabs.map(({ label }, index) => {
+            return (
+              <button
+                key={index}
+                className={`${
+                  activeTab === index
+                    ? "text-cyan-300 underline decoration-cyan-300"
+                    : ""
+                }`}
+                onClick={() => setActiveTab(index)}
+              >
+                {getStyledLabel(label, activeTab === index)}
+              </button>
+            );
+          })}
+        </nav>
+      </div>
       {tabs[activeTab].children}
     </div>
   );

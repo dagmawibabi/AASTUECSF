@@ -17,7 +17,6 @@ const UpcomingEvents: React.FC<Props> = ({
       name={title}
       containerStyles={{
         backgroundImage: `url(${GrainBG.src})`,
-        overflowX: "scroll",
       }}
     />
   );

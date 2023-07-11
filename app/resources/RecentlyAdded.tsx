@@ -1,6 +1,6 @@
 import { BookIcon, HeadphoneIcon, MultimediaIcon, MusicIcon } from '@components/Icons';
 import EventsCarousel from './EventsCarousel';
-import TabBar from '@/components/TabBar';
+import TabBar from '@components/TabBar';
 
 const tabs = [
   {
