@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { LeftArrow, RightArrow } from "./Icons";
 import React from "react";
 
@@ -33,38 +33,7 @@ const Carousel: FC<CarouselProps> = ({
   const slide = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState<number>(0);
 
-  if (!children || children.length < 1) {
-    return null;
-  }
-
-  if (slidesToShow > children.length) {
-    slidesToShow = children.length;
-  }
-
-  useEffect(() => {
-    if (!autoScroll) return;
-
-    const interval = setInterval(nextSlide, 3000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [autoScroll, current]);
-
-  function prevSlide() {
-    if (slider.current == null || slide.current == null) return;
-
-    const gap =
-      (slider.current.scrollWidth -
-        slide.current.offsetWidth * children.length) /
-      children.length;
-    const scrollValue = slide.current.offsetWidth * slidesToScroll + gap;
-
-    slider.current.scroll(scrollValue * (current - 1), 0);
-    setCurrent(current - 1);
-  }
-
-  function nextSlide() {
+  const nextSlide = useCallback(() => {
     console.log({ current });
     if (slider.current == null || slide.current == null) return;
     const gap =
@@ -82,6 +51,37 @@ const Carousel: FC<CarouselProps> = ({
       slider.current.scroll(0, 0);
       setCurrent(0);
     }
+  }, [current, slidesToScroll, children.length, slidesToShow, autoScroll]);
+
+  function prevSlide() {
+    if (slider.current == null || slide.current == null) return;
+
+    const gap =
+      (slider.current.scrollWidth -
+        slide.current.offsetWidth * children.length) /
+      children.length;
+    const scrollValue = slide.current.offsetWidth * slidesToScroll + gap;
+
+    slider.current.scroll(scrollValue * (current - 1), 0);
+    setCurrent(current - 1);
+  }
+
+  useEffect(() => {
+    if (!autoScroll) return;
+
+    const interval = setInterval(nextSlide, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [autoScroll, current, nextSlide]);
+
+  if (!children || children.length < 1) {
+    return null;
+  }
+
+  if (slidesToShow > children.length) {
+    slidesToShow = children.length;
   }
 
   return (
