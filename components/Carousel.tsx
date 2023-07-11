@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode, useRef } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { LeftArrow, RightArrow } from "./Icons";
 import React from "react";
 
@@ -10,6 +10,7 @@ type CarouselProps = {
   slidesToScroll?: number;
   className?: string;
   iconClassName?: string;
+  autoScroll?: boolean;
 };
 
 function getWidth(slidesToShow: number) {
@@ -26,9 +27,11 @@ const Carousel: FC<CarouselProps> = ({
   slidesToScroll = 1,
   iconClassName,
   className,
+  autoScroll = false,
 }) => {
   const slider = useRef<HTMLDivElement>(null);
   const slide = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState<number>(0);
 
   if (!children || children.length < 1) {
     return null;
@@ -38,22 +41,48 @@ const Carousel: FC<CarouselProps> = ({
     slidesToShow = children.length;
   }
 
+  useEffect(() => {
+    if (!autoScroll) return;
+
+    const interval = setInterval(nextSlide, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [autoScroll, current]);
+
   function prevSlide() {
     if (slider.current == null || slide.current == null) return;
 
-    const gap = (slider.current.scrollWidth - (slide.current.offsetWidth * children.length)) / children.length;
-    const scrollValue =
-      (slide.current.offsetWidth * slidesToScroll) + gap
-    slider.current.scrollLeft -= scrollValue;
+    const gap =
+      (slider.current.scrollWidth -
+        slide.current.offsetWidth * children.length) /
+      children.length;
+    const scrollValue = slide.current.offsetWidth * slidesToScroll + gap;
+
+    slider.current.scroll(scrollValue * (current - 1), 0);
+    setCurrent(current - 1);
   }
 
-  function nextSlide() {
+  const nextSlide = useCallback(() => {
+    console.log({ current });
     if (slider.current == null || slide.current == null) return;
-    const gap = (slider.current.scrollWidth - (slide.current.offsetWidth * children.length)) / children.length;
-    const scrollValue =
-      slide.current.offsetWidth * slidesToScroll + gap;
-    slider.current.scrollLeft += scrollValue;
-  }
+    const gap =
+      (slider.current.scrollWidth -
+        slide.current.offsetWidth * children.length) /
+      children.length;
+    const scrollValue = slide.current.offsetWidth * slidesToScroll + gap;
+    slider.current.scroll(scrollValue * (current + 1), 0);
+    setCurrent((cur) => cur + 1);
+
+    if (
+      autoScroll &&
+      current + slidesToScroll > children.length - slidesToShow
+    ) {
+      slider.current.scroll(0, 0);
+      setCurrent(0);
+    }
+  }, [current]);
 
   return (
     <div className={`flex ${className ?? null}`}>
