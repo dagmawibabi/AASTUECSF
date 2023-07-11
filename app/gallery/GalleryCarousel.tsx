@@ -1,3 +1,5 @@
+"use client";
+
 import Carousel from "@components/Carousel";
 import HouseImage from "@/assets/images/gallery/house-image.png";
 import ThreeCrosses from "@/assets/images/gallery/the-3-crosses.png";
@@ -13,11 +15,14 @@ import Event8 from "@/assets/images/events/event-8.png";
 import Event9 from "@/assets/images/events/event-9.png";
 import ImageCard from "@components/ImageCard";
 import WorshipPhoto from "@/public/worshipPhoto.png";
+import useNav from "@/hooks/useNav";
 
 const GalleryCarousel: React.FC = () => {
+  const isMobile = useNav(700);
+
   return (
-    <div className="p-14 py-24 bg-zinc-600">
-      <Carousel slidesToShow={3} autoScroll={true}>
+    <div className="p-4 lg:p-14 lg:py-24 bg-zinc-600">
+      <Carousel slidesToShow={isMobile ? 1 : 3} autoScroll={true}>
         <ImageCard src={HouseImage.src} />
         <ImageCard src={ThreeCrosses.src} />
         <ImageCard src={WorshipConcert.src} />
