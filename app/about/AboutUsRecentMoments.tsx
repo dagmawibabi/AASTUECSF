@@ -10,7 +10,7 @@ const AboutUsRecentMoments: React.FC = () => {
             <div className="w-full">
                 <div className="space-y-4">
                     <h1 className="text-2xl font-semibold">RECENT MOMENTS</h1>
-                    <div className="w-[40%] flex justify-between">
+                    <div className="w-[40%] flex justify-between space-x-1">
                         <p className="hover:text-purple-400 hover:underline">All team</p>
                         <p className="hover:text-purple-400 hover:underline">Worship</p>
                         <p className="hover:text-purple-400 hover:underline">Praying</p>
