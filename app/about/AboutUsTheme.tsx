@@ -18,7 +18,7 @@ const AboutUsTheme: React.FC = () => {
         </div>
         <div className="w-3/4 lg:w-[50%]">
           <p className="text-[80px] font-extrabold text-purple-400">
-            THIS YEAR'S THEME
+            THIS YEAR&apos;S THEME
           </p>
           <p className="text-2xl">
             We are a community of believers committed to the simple & incredible
