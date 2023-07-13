@@ -1,26 +1,42 @@
-import Header from "@components/Header";
 import HomeImage from "@/public/homePhoto.png";
-import localFont from "next/font/local";
+import holdingHands from "@/public/resources_2.png";
+import AboutUsHeader from "./AboutUsHeader";
+import AboutUsDescription from "./AboutUsDescription";
+import AboutUsTheme from "./AboutUsTheme";
+import AboutUsRecentMoments from "./AboutUsRecentMoments";
 
-const casualBrush = localFont({
-  src: "../../assets/fonts/CasualBrush-Regular.ttf",
-  display: "swap",
-});
-
-const AboutPage: React.FC = () => {
+const AboutUsPage: React.FC = () => {
   return (
-    <Header backgroundImage={HomeImage}>
-      <p className="text-3xl">
-        For where two or three gather together as <br /> my followers, I am
-        there among them
-      </p>
-      <h1
-        className={`xl:text-9xl uppercase ${casualBrush.className} tracking-widest`}
-      >
-        I am there among <br /> <span className="border-cyan-400 border-b-4 p-4">them</span> <span className="text-cyan-400">Mattew 18:20</span>
-      </h1>
-    </Header>
+    <>
+      <AboutUsHeader
+        backgroundImage={HomeImage}
+        mainText="I am there among them"
+        subText="For Where two or three gather together as my followers, I am there among them"
+        source="Mathew 18:20"
+      />
+
+      <AboutUsDescription
+        backgroundImage={holdingHands}
+        title="Welcome to AASTU ECSF Fellowship"
+        mainText="We are a community of university Christian students who are
+        committed to growing together spiritually. We believe that spiritual
+        growth comes from connecting our faith to every aspect of our lives:
+        our relationships, our studies, our jobs, and even our leisure
+        activities. Through small group discussions, mentoring programs,
+        Bible studies and regular prayer, we strive to create a space where
+        we can deepen our faith together and help each other grow in Christ.
+        Additionally, we are committed to being active contributors in the
+        lives of our peers and our community, demonstrating an example of
+        how faith impacts every aspect of life."
+        subText="ABOUT US"
+      />
+
+        <AboutUsTheme />
+        <AboutUsRecentMoments />
+
+     
+    </>
   );
 };
 
-export default AboutPage;
+export default AboutUsPage;
